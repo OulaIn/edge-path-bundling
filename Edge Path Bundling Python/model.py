@@ -3,9 +3,11 @@ import math
 
 class Edge:
 
-    def __init__(self, source, destination):
+    def __init__(self, source, destination, od_id, count):
         self.source = source
         self.destination = destination
+        self.od_id = od_id
+        self.count = count
         self.distance = -1
         self.weight = -1
         self.skip = False

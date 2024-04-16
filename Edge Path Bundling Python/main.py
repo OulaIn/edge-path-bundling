@@ -1,4 +1,4 @@
-import airports
+import locations
 import migrations
 import dijkstra
 
@@ -22,9 +22,10 @@ n = 100  # number of sampling points in Bezier curves
 draw_map = True  # Draw map for the underlying data
 plot_3d = False  # Plot for use on sphere
 smoothing = 2  # Smoothing parameter for Bezier curves
+output_option = 1 # Choose drawing output file option
 
 # data source
-nodes, edges = airports.get_airpors_data(d)
+nodes, edges = locations.get_locations_data(d)
 # nodes, edges = migrations.get_migrations_data(d)
 
 ############################################################################################
@@ -68,6 +69,6 @@ for edge in tqdm(edges, desc="Computing: "):
 ############################################################################################
 # DRAWING
 ############################################################################################
-draw(control_point_lists, nodes, edges, n, plot_3d, draw_map)
+draw(control_point_lists, nodes, edges, n, plot_3d, draw_map, output_option)
 
 print(f"Out of {len(edges)} edges, {too_long} had too long detour and {no_path} had no alternative path.")
